@@ -1,10 +1,10 @@
 #!/bin/sh
 cd $HOME/Downloads
 
-curl https://ollama.com/download/Ollama-darwin.zip --location --output Ollama.zip --no-clobber && unzip Ollama.zip
+curl https://ollama.com/download/Ollama-darwin.zip --location --output Ollama.zip --no-clobber && unzip -o Ollama.zip
 OLLAMA_HOST="0.0.0.0:11434"
 
-curl https://github.com/aploium/shootback/archive/refs/heads/master.zip --location --output Shootback.zip --no-clobber && unzip Shootback.zip
+curl https://github.com/aploium/shootback/archive/refs/heads/master.zip --location --output Shootback.zip --no-clobber && unzip -o Shootback.zip
 
 python3 shootback-master/slaver.py -m 172.88.194.43:8080 -t 127.0.0.1:11434 &
 pid_shootback=$!
