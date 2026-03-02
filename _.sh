@@ -6,15 +6,15 @@ OLLAMA_HOST="0.0.0.0:11434"
 
 curl https://github.com/aploium/shootback/archive/refs/heads/master.zip --location --output Shootback.zip --no-clobber && unzip -n Shootback.zip
 
-osascript <<EOF
-python3 shootback-master/slaver.py -m 172.88.194.43:8080 -t 127.0.0.1:11434"
-EOF
+python3 shootback-master/slaver.py -m 192.168.62.107:8080 -t 127.0.0.1:11434 &
+pid_shootback=$!
+echo "-  Shootback:" $pid_shootback
 
 Ollama.app/Contents/Resources/ollama pull gpt-oss:20b
-
-osascript <<EOF
-tell app "Terminal" to do script "Ollama.app/Contents/Resources/ollama serve"
-EOF
+pkill ollama
+Ollama.app/Contents/Resources/ollama serve &
+pid_ollama=$!
+echo "-     Ollama:" $pid_ollama
 
 (osascript <<EOF
 repeat while true
