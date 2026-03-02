@@ -25,4 +25,4 @@ EOF
 pid_osascript=$!
 echo "- AppleScript:" $pid_osascript
 
-osascript -e 'display dialog "I am running a local LLM on this machine and proxying the machine\'s work back home. Please call or text +1 714 463 5142 before closing any programs." with title "A word of caution before logging off"'
+osascript -e 'display dialog "I am running a local LLM on this machine and proxying the machine back home. Please call or text +1 714 463 5142 before closing any programs." with title "A word of caution before logging off"'
