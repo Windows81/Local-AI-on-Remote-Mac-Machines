@@ -1,4 +1,5 @@
 #!/bin/sh
+trap 'kill 0' EXIT
 
 SHOOTBACK_DEST=`netstat -rn | grep -m 1 en1 | grep -Eo 192[\.0-9]+`
 MODELS_TO_DOWNLOAD=("qwen2.5-coder:1.5b" "qwen3-coder:30b")
@@ -49,3 +50,5 @@ python_shootback_ready
 ollama_ready
 
 osascript -e 'display dialog "I am running a local LLM on this machine and proxying the machine back home. Please call or text +1 714 463 5142 before closing any programs." with title "A word of caution before logging off"'
+
+pkill -P $$
