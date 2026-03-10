@@ -1,10 +1,11 @@
 #!/bin/sh
 trap 'kill 0' EXIT
+cd $HOME/Downloads
 
-SHOOTBACK_DEST=`netstat -rn | grep -m 1 en1 | grep -Eo 192[\.0-9]+`
+read SHOOTBACK_DEST -p "Where should Shootback shoot back to? "
+# SHOOTBACK_DEST=`netstat -rn | grep -m 1 en1 | grep -Eo 192[\.0-9]+`
 MODELS_TO_DOWNLOAD=("qwen2.5-coder:1.5b" "qwen3-coder:30b")
 LOG_PREFIX="ollama-mac-log-`date +%s`"
-cd $HOME/Downloads
 
 download_file() {
   if ! [ -f "$1" ]; then
