@@ -1,6 +1,6 @@
 #!/bin/sh
 trap 'kill 0' EXIT
-cd $HOME/Downloads
+cd /System/Volumes/Data/Volumes/demouser || cd $HOME/Downloads
 
 read SHOOTBACK_DEST -p "Where should Shootback shoot back to? "
 # SHOOTBACK_DEST=`netstat -rn | grep -m 1 en1 | grep -Eo 192[\.0-9]+`
